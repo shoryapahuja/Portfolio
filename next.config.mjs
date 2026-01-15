@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")?.[1];
-const basePath = isGithubPages && repoName ? `/${repoName}` : undefined;
+const envBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+const basePath = envBasePath || (isGithubPages && repoName ? `/${repoName}` : undefined);
 
 const nextConfig = {
   reactStrictMode: true,
