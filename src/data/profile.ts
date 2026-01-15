@@ -3,8 +3,7 @@ export interface Skill {
   category: "Programming" | "Engineering Tools" | "PCB Design & Electronics";
 }
 
-// Used to make public asset URLs work on GitHub Pages (e.g. /Portfolio)
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 
 export interface Experience {
   title: string;
@@ -64,8 +63,8 @@ export const profile: Profile = {
   email: "mailto:spahuja2@uwo.ca",
   emailLabel: "spahuja2@uwo.ca",
   linkedin: "https://linkedin.com/in/shorya-pahuja", // Update with actual LinkedIn
-  resume: `${basePath}/resume.pdf`,
-  headshot: `${basePath}/headshot.svg`,
+  resume: "/resume.pdf",
+  headshot: "/headshot.svg",
   hero: {
     headline: "Electrical & Computer Engineering Student",
     subtext:
@@ -74,7 +73,8 @@ export const profile: Profile = {
   about: [
     "I'm an Electrical & Computer Engineering student at Western University with a strong foundation in both hardware and software development. Through hands-on internship experience and engineering projects, I've developed expertise in CAD design and embedded systems programming.",
     "I thrive on solving practical problems and building real-world systems—from designing 3D printer enclosures with HEPA filtration to programming Arduino-based control systems. My experience at Peacock Manufacturing has given me valuable exposure to precision manufacturing, quality assurance, and engineering documentation.",
-    "I'm actively seeking internships where I can apply my skills in ECE, software development, and manufacturing. I bring a combination of technical knowledge, hands-on experience, and a commitment to engineering excellence.",
+    "I'm actively seeking internships where I can apply my skills in ECE and software development—especially embedded systems, computer vision, and digital design."
+
   ],
   valueCards: [
     {
@@ -131,7 +131,7 @@ export const profile: Profile = {
         "Added gesture-triggered actions tuned for stable, low-latency interaction",
       ],
       tech: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
-      image: `${basePath}/projects/air-mouse-gesture-controls.jpg`,
+      image: "/projects/air-mouse-gesture-controls.jpg",
     },
     {
       title: "3D Printer Enclosure",
@@ -144,13 +144,13 @@ export const profile: Profile = {
         "Placed 3rd of 160 teams; 1st in 3D Printing category",
       ],
       tech: ["Onshape", "CAD Design", "HEPA Filtration", "Thermal Modeling"],
-      image: `${basePath}/projects/3d-printer-enclosure-1.jpg`,
-      images: [
-        `${basePath}/projects/3d-printer-enclosure-1.jpg`,
-        `${basePath}/projects/3d-printer-enclosure-2.jpg`,
-        `${basePath}/projects/3d-printer-enclosure-3.jpg`,
-        `${basePath}/projects/3d-printer-enclosure-5.jpg`,
-      ],
+      image: "/projects/3d-printer-enclosure-1.jpg",
+images: [
+  "/projects/3d-printer-enclosure-1.jpg",
+  "/projects/3d-printer-enclosure-2.jpg",
+  "/projects/3d-printer-enclosure-3.jpg",
+  "/projects/3d-printer-enclosure-5.jpg",
+],
       achievement: "3rd of 160 teams; 1st in 3D Printing category",
     },
     {
@@ -165,8 +165,8 @@ export const profile: Profile = {
         "Iterated CAD designs in Onshape to optimize dispersion",
       ],
       tech: ["Onshape", "Arduino Uno", "C++", "3D Printing", "LED Control"],
-      image: `${basePath}/projects/sad-lamp-diffuser-1.jpg`,
-      images: [`${basePath}/projects/sad-lamp-diffuser-1.jpg`],
+      image: "/projects/sad-lamp-diffuser-1.jpg",
+images: ["/projects/sad-lamp-diffuser-1.jpg"],
       imageFit: "contain",
     },
   ],
