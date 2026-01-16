@@ -5,7 +5,6 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { profile } from "@/data/profile";
 import { Mail, Linkedin, MapPin } from "lucide-react";
-import { ContactForm } from "./ContactForm";
 
 export function Contact() {
   const ref = useRef(null);
@@ -20,7 +19,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12">Contact</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12">
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold text-foreground mb-4">Get in Touch</h3>
@@ -58,11 +57,6 @@ export function Contact() {
                   <span>{profile.location}</span>
                 </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Send a Message</h3>
-              <ContactForm />
             </div>
           </div>
         </motion.div>
