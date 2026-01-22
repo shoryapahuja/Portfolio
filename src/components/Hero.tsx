@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 
@@ -52,22 +50,6 @@ export function Hero() {
           >
             {profile.hero.subtext}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
-          >
-            <Link
-              href={profile.resume}
-              download
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-            >
-              <Download className="w-5 h-5" />
-              Download Resume
-            </Link>
-          </motion.div>
         </motion.div>
 
         {/* Value Cards */}

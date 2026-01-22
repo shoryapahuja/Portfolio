@@ -20,7 +20,7 @@ export interface Project {
   overview: string;
   bullets: string[];
   tech: string[];
-  image: string;
+  image?: string; // Optional - projects may not have images yet
   images?: string[]; // Optional array for additional images
   imageFit?: "cover" | "contain";
   achievement?: string;
@@ -131,7 +131,6 @@ export const profile: Profile = {
         "Added gesture-triggered actions tuned for stable, low-latency interaction",
       ],
       tech: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
-      image: "/projects/air-mouse-gesture-controls.jpg",
     },
     {
       title: "3D Printer Enclosure",
@@ -145,12 +144,12 @@ export const profile: Profile = {
       ],
       tech: ["Onshape", "CAD Design", "HEPA Filtration", "Thermal Modeling"],
       image: "/projects/3d-printer-enclosure-1.jpg",
-images: [
-  "/projects/3d-printer-enclosure-1.jpg",
-  "/projects/3d-printer-enclosure-2.jpg",
-  "/projects/3d-printer-enclosure-3.jpg",
-  "/projects/3d-printer-enclosure-5.jpg",
-],
+      images: [
+        "/projects/3d-printer-enclosure-1.jpg",
+        "/projects/3d-printer-enclosure-2.jpg",
+        "/projects/3d-printer-enclosure-3.jpg",
+        "/projects/3d-printer-enclosure-5.jpg",
+      ],
       achievement: "3rd of 160 teams; 1st in 3D Printing category",
     },
     {
@@ -166,7 +165,7 @@ images: [
       ],
       tech: ["Onshape", "Arduino Uno", "C++", "3D Printing", "LED Control"],
       image: "/projects/sad-lamp-diffuser-1.jpg",
-images: ["/projects/sad-lamp-diffuser-1.jpg"],
+      images: ["/projects/sad-lamp-diffuser-1.jpg"],
       imageFit: "contain",
     },
   ],
