@@ -26,6 +26,15 @@ export interface Project {
   achievement?: string;
 }
 
+export interface Research {
+  title: string;
+  period: string;
+  overview: string;
+  bullets: string[];
+  tag?: string;
+  link?: string;
+}
+
 export interface Profile {
   name: string;
   title: string;
@@ -50,6 +59,7 @@ export interface Profile {
   }[];
   experiences: Experience[];
   projects: Project[];
+  research?: Research[];
   skills: Skill[];
 }
 
@@ -167,6 +177,23 @@ export const profile: Profile = {
       image: "/projects/sad-lamp-diffuser-1.jpg",
       images: ["/projects/sad-lamp-diffuser-1.jpg"],
       imageFit: "contain",
+    },
+  ],
+  research: [
+    {
+      title: "Autonomous Vehicles in Canada",
+      period: "Dec 2025",
+      overview:
+        "This essay argues that Canada is not ready for widespread autonomous vehicle adoption due to poor sensor performance in winter conditions and the absence of clear liability laws. It concludes that both engineering improvements and legal reform are required before AVs can be safely deployed nationwide.",
+      bullets: [
+        "Explained how LiDAR, cameras, and radar struggle in Canadian winter conditions such as snow, slush, fog, and salt spray",
+        "Showed that AV systems trained in warmer regions perform unpredictably on Canadian roads",
+        "Analyzed how current Canadian liability laws fail to address Level 3 and higher autonomous driving",
+        "Demonstrated that unclear responsibility discourages manufacturers from testing and deploying AVs in Canada",
+        "Proposed technical solutions like winter-specific datasets and legal solutions like clarified liability frameworks",
+      ],
+      tag: "Course essay / Independent research",
+      link: "/research/autonomous-vehicles-in-canada.pdf",
     },
   ],
   skills: [

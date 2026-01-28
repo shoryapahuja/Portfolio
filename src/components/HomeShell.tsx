@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
+import { Research } from "@/components/Research";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 
@@ -41,6 +42,7 @@ export function HomeShell() {
             <About />
             <Experience />
             <Projects />
+            <Research />
             <Skills />
             <Contact />
           </>
