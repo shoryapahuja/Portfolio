@@ -82,9 +82,8 @@ export const profile: Profile = {
   },
   about: [
     "I'm an Electrical & Computer Engineering student at Western University with a strong foundation in both hardware and software development. Through hands-on internship experience and engineering projects, I've developed expertise in CAD design and embedded systems programming.",
-    "I thrive on solving practical problems and building real-world systems—from designing 3D printer enclosures with HEPA filtration to programming Arduino-based control systems. My experience at Peacock Manufacturing has given me valuable exposure to precision manufacturing, quality assurance, and engineering documentation.",
-    "I'm actively seeking internships where I can apply my skills in ECE and software development—especially embedded systems, computer vision, and digital design."
-
+    "I thrive on solving practical problems and building real-world systems, from designing 3D printer enclosures with HEPA filtration to programming Arduino-based control systems. My experience at Peacock Manufacturing has given me valuable exposure to precision manufacturing, quality assurance, and engineering documentation.",
+    "I'm actively seeking internships where I can apply my skills in ECE and software development, especially embedded systems, computer vision, and digital design.",
   ],
   valueCards: [
     {
@@ -93,14 +92,14 @@ export const profile: Profile = {
         "Proficient in AutoCAD, Onshape, and SolidWorks for engineering design and 3D modeling.",
     },
     {
-      title: "Arduino/C++",
+      title: "Arduino Prototyping",
       description:
-        "Embedded systems programming with Arduino Uno, C++ control logic, and sensor integration.",
+        "Sensor interfacing, signal handling, and basic control logic in Arduino-based projects.",
     },
     {
       title: "Digital Logic & FPGA Design",
       description:
-        "Experience designing and verifying combinational and sequential logic using Boolean algebra, finite state machines, and digital system fundamentals.",
+        "Designed and verified combinational and sequential logic using Boolean algebra and FSMs.",
     },
   ],
   experiences: [
@@ -205,9 +204,9 @@ export const profile: Profile = {
     { name: "SolidWorks", category: "Engineering Tools" },
     { name: "MATLAB", category: "Engineering Tools" },
     { name: "Arduino", category: "Engineering Tools" },
-    { name: "Schematic Capture", category: "PCB Design & Electronics" },
     { name: "Circuit Analysis", category: "PCB Design & Electronics" },
     { name: "Introductory PCB Layout", category: "PCB Design & Electronics" },
-    { name: "Design Rule Awareness", category: "PCB Design & Electronics" },
+    { name: "Hardware & Software Integration", category: "PCB Design & Electronics" },
+    { name: "Electronic Circuit Design", category: "PCB Design & Electronics" },
   ],
 };

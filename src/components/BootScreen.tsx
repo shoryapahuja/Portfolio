@@ -10,9 +10,9 @@ type BootStep = {
 };
 
 const steps: BootStep[] = [
-  { key: "firmware", label: "Firmware Module" },
-  { key: "hardware", label: "Hardware Interface" },
-  { key: "app", label: "Application Layer" },
+  { key: "firmware", label: "Portfolio Content" },
+  { key: "hardware", label: "Projects & Experience" },
+  { key: "app", label: "Ready to Explore" },
 ];
 
 function clamp(n: number, min: number, max: number) {
@@ -20,7 +20,7 @@ function clamp(n: number, min: number, max: number) {
 }
 
 export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
-  const [status, setStatus] = useState<"OFFLINE" | "ONLINE">("OFFLINE");
+  const [status, setStatus] = useState<"READY" | "WELCOME">("READY");
   const [isBooting, setIsBooting] = useState(false);
   const [activeStepIndex, setActiveStepIndex] = useState<number>(-1);
   const [progress, setProgress] = useState<Record<BootStepKey, number>>({
@@ -51,7 +51,7 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
   const boot = () => {
     if (isBooting) return;
     setIsBooting(true);
-    setStatus("OFFLINE");
+    setStatus("READY");
     setActiveStepIndex(-1);
     setProgress({ firmware: 0, hardware: 0, app: 0 });
 
@@ -66,7 +66,7 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
 
     const runStep = (idx: number) => {
       if (idx >= steps.length) {
-        setStatus("ONLINE");
+        setStatus("WELCOME");
         schedule(() => onBootComplete(), 280);
         return;
       }
@@ -98,10 +98,10 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
 
   const stepStatus = (idx: number, key: BootStepKey) => {
     const p = progress[key];
-    if (p >= 100) return "OK";
+    if (p >= 100) return "READY";
     if (idx === activeStepIndex) return "LOADING";
-    if (idx < activeStepIndex) return "OK";
-    return "PENDING";
+    if (idx < activeStepIndex) return "READY";
+    return "";
   };
 
   return (
@@ -117,12 +117,12 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
               </div>
               <div className="text-xs sm:text-sm tracking-[0.18em] text-zinc-200/90">
-                SHORYA PAHUJA — SYSTEM CONSOLE
+                SHORYA PAHUJA
               </div>
             </div>
             <div className="text-xs font-medium">
               <span className="text-zinc-400">STATUS: </span>
-              <span className={status === "ONLINE" ? "text-emerald-300" : "text-zinc-200"}>
+              <span className={status === "WELCOME" ? "text-emerald-300" : "text-zinc-200"}>
                 {status}
               </span>
             </div>
@@ -132,14 +132,11 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
           <div className="px-5 sm:px-7 py-7 sm:py-9">
             <div className="flex items-start justify-between gap-6">
               <div className="space-y-2">
-                <div className="text-sm text-zinc-300">Initializing modules for portfolio interface…</div>
+                <div className="text-sm text-zinc-300">Welcome to my portfolio</div>
                 <div className="text-sm sm:text-base text-zinc-200/90">
-                  Press <span className="text-zinc-100 font-semibold">BOOT SYSTEM</span> to continue.
+                  Press <span className="text-zinc-100 font-semibold">ENTER</span> to start exploring.
                 </div>
-              </div>
-              <div className="text-right">
-                <div className="text-xs text-zinc-400">OVERALL</div>
-                <div className="text-2xl font-semibold tabular-nums">{overallProgress}%</div>
+                <div className="text-xs text-zinc-500 mt-1">This is a welcome screen — everything is working perfectly.</div>
               </div>
             </div>
 
@@ -151,9 +148,11 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
                   <div key={s.key} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="text-sm font-medium text-zinc-200">{s.label}</div>
-                      <div className="text-xs text-zinc-400 tabular-nums">
-                        {state === "OK" ? "OK" : state === "LOADING" ? "LOADING…" : "PENDING"}
-                      </div>
+                      {state && (
+                        <div className="text-xs text-zinc-400 tabular-nums">
+                          {state === "READY" ? "READY" : state === "LOADING" ? "LOADING…" : ""}
+                        </div>
+                      )}
                     </div>
                     <div className="relative h-2 rounded-full bg-white/10 overflow-hidden">
                       <div
@@ -174,22 +173,21 @@ export function BootScreen({ onBootComplete }: { onBootComplete: () => void }) {
             </div>
 
             <div className="mt-7 flex flex-col items-stretch gap-3">
-              <div className="text-xs text-zinc-500">Secure boot • No network • Client-side only</div>
               <button
                 type="button"
                 onClick={boot}
                 disabled={isBooting}
                 className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg border border-white/15 bg-white/[0.04] hover:bg-white/[0.07] transition-colors text-sm font-semibold tracking-[0.14em] text-zinc-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Boot system"
+                aria-label="Enter portfolio"
               >
-                {isBooting ? "BOOTING…" : "BOOT SYSTEM"}
+                {isBooting ? "LOADING…" : "ENTER"}
               </button>
             </div>
           </div>
         </div>
 
         <div className="mt-4 text-center text-xs text-zinc-500">
-          Tip: This intro is cosmetic—your portfolio loads immediately after boot.
+          Welcome screen
         </div>
       </div>
     </div>
